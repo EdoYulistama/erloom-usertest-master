@@ -22,6 +22,10 @@ class TestController extends Controller
     public function store(Request $request)
     {
         //LOGIC HERE
+
+        $request->validate([
+            'name'=>'required',
+        ]);
         return $this->usertests->tambahdata($request->all());
     }
 

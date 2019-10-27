@@ -16,10 +16,16 @@
         <div class="row">
             <div class="col-12 py-3">
 
-                <form action="{{route('store')}}" method="POST">
+                <form action="{{route('store')}}" method="POST" class="form-inline">
                     @csrf
-                    <label>Name : </label> <input type="text" name="name" />
-                    <button class="btn btn-primary" type="submit">Create</button>
+                    <div class="form-group mx-sm-3 mb-2">
+                            <label class="my-1 mr-2">Name : </label>
+                            <input type="text" class="form-control mb-2 mr-sm-2 @error('name') is-invalid @enderror" id="name" name="name" placeholder="Input Name">
+                            <button type="submit" class="btn btn-primary mb-2">Create</button>
+                            @error('name')
+                            <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
                 </form>
 
             </div>
@@ -39,7 +45,7 @@
                         <!-- LOGIC START -->
                         @foreach ($data as $datas)
                         <tr>
-                            <td>{{$datas['id']}}</td>
+                            <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$datas['name']}}</td>
                             <td>
                                 @if($datas['id'] % 2 == 0)
