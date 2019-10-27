@@ -32,7 +32,11 @@
         </div>
         <div class="row">
             <div class="col-12">
-
+                    @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                    @endif
                 <table class="table py-3">
                     <thead>
                         <tr>

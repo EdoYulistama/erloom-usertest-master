@@ -130,7 +130,7 @@ return [
 
     'custom' => [
         'name' => [
-            'required' => 'kami membutuhkan nama anda',
+            'required' => '*Form Name Harus di Isi !',
         ],
     ],
     // 'custom' => [
